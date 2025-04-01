@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="sudarshan1.css"> -->
+    <!-- <script  src="sudarshan1.js"></script> -->
+     <script src="index.js"></script>
+     <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ManKav</title>
+</head>
+<script>
+      
+  </script>
+<body>
+
+    
+    <div class="heading">
+        <p> Get free Second Opinion from India's Leading. 
+            <button onclick="toggleComingSoon()" class="heading-button">
+                <i class="fa fa-chevron-down"></i>
+            </button> 
+        </p>
+        <div>
+            <p id="coming-soon-text" style="display: none; font-size: 14px; color: yellow; margin-top: 5px;">
+                Coming Soon...
+        </div>
+    </div>
+    
+
+    <script>
+        function toggleComingSoon() {
+            let comingSoonText = document.getElementById("coming-soon-text");
+            
+            // Toggle visibility
+            if (comingSoonText.style.display === "none") {
+                comingSoonText.style.display = "block";
+            } else {
+                comingSoonText.style.display = "none";
+            }
+        }
+        
+    </script>
+    
+    <script>
+        function toggleHeading() {
+            var btn = document.querySelector(".heading-button i");
+            btn.classList.toggle("fa-chevron-down");
+            btn.classList.toggle("fa-chevron-up");
+        }
+        
+    </script>
+    
+    <div class="navbar" id="mynavbar">
+        <img id="logo" class="active" src="/static/Mankav Logo.png" alt="Mankav Logo">
+        <a class="nav-link" href="#home-box"><button id="navbar-btn">Home</button></a>
+        <a class="nav-link" href="#career-box"><button id="navbar-btn">Career</button></a>
+        <a class="nav-link" href="/login"><button id="navbar-btn">Login</button></a>
+        <a class="nav-link" href="#contact-box"><button id="navbar-btn">Contact</button></a>
+        <a class="nav-link" href="#research-box"><button id="navbar-btn">Research</button></a>
+        <a class="nav-link" href="#emergency-box"><button id="navbar-btn">Emergency</button></a>
+        <a class="nav-link" href="#report-box"><button id="navbar-btn">Online Report</button></a>
+        <a class="nav-link" href="#doctor-box"><button id="navbar-btn">Find a Doctor</button></a>
+    
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    
+    <!-- Modals -->
+    <div id="career-box" class="modal">
+        <div class="content">
+            <b><u><h3>Career</h3></u></b>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">Career Portal will Launch Soon.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="login-box" class="modal">
+        <div class="content">
+            <u><b><h3>Login</h3></b></u>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">Form will be generated soon.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="emergency-box" class="modal">
+        <div class="content">
+            <u><b><h3>Emergency Service</h3></b></u>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">This service is available only at the hospital site.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="report-box" class="modal">
+        <div class="content">
+            <u><b><h3>Report</h3></b></u>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">Service will launch soon. Please visit the hospital to get a report.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="doctor-box" class="modal">
+        <div class="content">
+            <u><b><h3>Doctors</h3></b></u>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">List of Doctors will be uploaded soon.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="research-box" class="modal">
+        <div class="content">
+            <u><b><h3>Research</h3></b></u>
+            <br>
+            <h1 style="color: rgb(57, 72, 167);">Research Papers will be uploaded by admin. Doctors, please submit reports to the admin panel.</h1>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <div id="contact-box" class="modal">
+        <div class="content">
+            <u><b><h4>Contact Us</h4></b></u>
+            <h6 style="color: green;">
+                <p><b>Developer: 
+                    <a href="mailto:emailsudarshanpriye@gmail.com">Email</a> / 
+                    <a href="https://www.linkedin.com/in/sudarshan-priye-shan0910/">LinkedIn</a>
+                </b></p>
+            </h6>
+            <a href="#" class="box-close" onclick="this.parentElement.parentElement.style.display='none'">×</a>
+        </div>
+    </div>
+    
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+        function toggleMenu() {
+            var navbar = document.getElementById("mynavbar");
+            if (navbar.className === "navbar") {
+                navbar.className += " responsive";
+            } else {
+                navbar.className = "navbar";
+            }
+        }
+        
+    </script>
+    
+        
+                <!-- Popup Container -->
+<div id="popupMessage" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p>Your appointment is booked!</p>
+    </div>
+</div>
+
+                
+    
+
+                <div class="appointment-form-box">
+                    <form id="appointmentForm" class="appointment-form" action="/api/appointment" method="POST">
+                      <h1 class="form-heading"><b>Book Your Appointment</b></h1>
+                      <hr>
+                  
+                      <label for="patientName"><b>Patient Name</b></label>
+                      <input type="text" name="patientName" placeholder="Patient Name">
+                  
+                      <label for="age"><b>Age</b></label>
+                      <input type="number" name="age" placeholder="Age">
+                  
+                      <label for="mobileNumber"><b>Mobile Number</b></label>
+                      <input type="tel" name="mobileNumber" placeholder="Mobile Number">
+                  
+                      <label for="gender"><b>Gender</b></label>
+                      <select name="gender" id="gender">
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
+                  
+                      <label for="country"><b>Country</b></label>
+                      <select name="country" id="country">
+                        <option value="">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                      </select>
+                  
+                      <label for="search-for-specialist"><b>Specialist</b></label>
+                      <select name="specialist" id="search-for-specialist">
+                        <option value="">Select Specialist</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="Endocrinology">Endocrinology</option>
+                        <option value="Gynae-Oncology">Gynae-Oncology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Ophthalmologist">Ophthalmologist</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Psychiatry">Psychiatry</option>
+                      </select>            
+                  
+                      <div class="appointment-btn-container">
+                        <button type="submit" class="appointment-btn">Book Appointment</button>
+                      </div>
+                  
+                      <div class="signin">
+                        <p>New Here? <a href="/register" class="signInlink">Sign Up</a>.</p>
+                      </div>
+                    </form>
+                  </div>
+                  
+        <div class="main">
+                    <div class="marq-container">
+                        <p class="marqp">Get a quick health prediction from your scrap report in just 5 to 10 seconds. <strong><b>Note : </b></strong> This may also produce errors.</p>
+                    </div>
+                </div>
+                
+		
+
+    <div class="instant-result">
+        <div class="box1">
+            <img src="/static/diabetes.jpg" alt="Diabetes" class="disease-test-pic">
+
+            <button class="open-button" onclick="diabetes()">Know Your Diabetes Report</button>
+
+<!-- The form -->
+<div class="form-popup" id="diabetes">
+  <form id="diabetesForm" method="POST" class="form-container" action="/diabetes">
+    <h1 class="disease-heading">Diabetes Prediction</h1>
+
+   
+    <label for="Email"><b>Email</b></label>
+    <input type="text" placeholder="Please Enter Your Email " name="email" required="required" >
+
+  
+    <label for="Phone Number"><b>Phone Number</b></label>
+    <input type="number" placeholder="Enter Enter your Phone Number " name="phoneNumber" required="required" >
+
+  
+    <label for="Number of Pregnancies"><b>Number of Pregnancies</b></label>
+    <input type="text" placeholder="Enter number of Pregnancies (0-15) " name="pregnancies" required="required" >
+
+    <label for="Glucose level"><b>Glucose level</b></label>
+    <input type="text" placeholder="Enter Glucose level (40-250)" name="glucose" required="required">
+
+    <label for="Blood Pressure value"><b>Blood Pressure value</b></label>
+    <input type="text" placeholder="Enter Blood Pressure value (20-140)" name="bloodPressure" required="required" >
+    <label for="Skin Thickness Value"><b>Skin Thickness Value</b></label>
+    <input type="text" placeholder="Enter Skin Thickness Value (5-80)" name="skinThickness" required="required" >
+    <label for="Insulin Level"><b>Insulin Level</b></label>
+    <input type="text" placeholder="Enter Insulin Level (0-1000)" name="insulin" required="required">
+    <label for="Enter BMI value"><b>Enter BMI value</b></label>
+    <input type="text" placeholder="Enter BMI value (10-100) " name="bmi" required="required"    >
+    <label for="Diabetes Pedigree Function Value"><b>Diabetes Pedigree Function Value</b></label>
+    <input type="text" placeholder="Enter Pedigree number (0-2.5) " name="diabetesPedigreeFunction" required="required" >
+    <label for="Age Of the Person"><b>Age Of the Person</b></label>
+    <input type="text" placeholder="Enter Age Of the Person (10-120) " name="age" required="required">
+
+
+    <button type="submit" class="btn">Get Diabetes Test Result</button>
+    <button type="button" class="btn cancel" onclick="diabetesForm()">Close</button>
+  </form>
+</div>
+        </div>
+
+
+        <div class="box2">
+            <img src="/static/heart.jpg" alt="Diabetes" class="disease-test-pic">
+            <button class="open-button" onclick="heart()">Know Your Heart Disease Report</button>
+
+<!-- The form -->
+<div class="form-popup" id="heart">
+    <form id="heartForm" method="POST" action="/heart" class="form-container">
+        <h1 class="disease-heading">Heart Disease Prediction</h1>
+    
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Please Enter Your Email" name="email" required="required">
+    
+        <label for="phoneNumber"><b>Phone Number</b></label>
+        <input type="number" placeholder="Enter Your Phone Number" name="phoneNumber" required="required">
+    
+        <label for="age"><b>Age</b></label>
+        <input type="text" placeholder="Enter Age of the Person" name="age" required="required">
+    
+        <label for="sex"><b>Gender</b></label>
+        <select id="sex" name="sex" required="required">
+            <option selected>----Select Option----</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+    
+        <label for="cp"><b>Chest Pain Types</b></label>
+        <select id="cp" name="cp" required="required">
+            <option selected>----Select Option----</option>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+        </select>
+    
+        <label for="trestbps"><b>Resting Blood Pressure</b></label>
+        <input type="text" placeholder="Enter in range (94-200) mmHg" name="trestbps" required="required">
+    
+        <label for="chol"><b>Serum Cholesterol (mg/dl)</b></label>
+        <input type="text" placeholder="Enter in range (126-564) mg/dl" name="chol" required="required">
+    
+        <label for="fbs"><b>Fasting Blood Sugar (> 120 mg/dl)</b></label>
+        <select id="fbs" name="fbs" required="required">
+            <option selected>----Select Option----</option>
+            <option value="1">Greater than 120 mg/dl</option>
+            <option value="0">Less than 120 mg/dl</option>
+        </select>
+    
+        <label for="restecg"><b>Resting ECG Results</b></label>
+        <select id="restecg" name="restecg" required="required">
+            <option selected>----Select Option----</option>
+            <option value="0">Normal</option>
+            <option value="1">Having ST-T wave abnormality</option>
+            <option value="2">Probable Left Ventricular Hypertrophy</option>
+        </select>
+    
+        <label for="thalach"><b>Maximum Heart Rate Achieved</b></label>
+        <input type="text" placeholder="In range (71-202) bpm" name="thalach" required="required">
+    
+        <label for="exang"><b>Exercise-induced Angina</b></label>
+        <select id="exang" name="exang" required="required">
+            <option selected>----Select Option----</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    
+        <label for="oldpeak"><b>ST Depression</b></label>
+        <input type="text" placeholder="Typically in (0-6.2)" name="oldpeak" required="required">
+    
+        <label for="slope"><b>Slope of the Peak Exercise ST Segment</b></label>
+        <select id="slope" name="slope" required="required">
+            <option selected>----Select Option----</option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+        </select>
+    
+        <label for="ca"><b>Number of Major Vessels</b></label>
+        <input type="text" placeholder="Typically in (0-4)" name="ca" required="required">
+    
+        <label for="thal"><b>Thalassemia</b></label>
+        <select id="thal" name="thal" required="required">
+            <option selected>----Select Option----</option>
+            <option value="0">Normal</option>
+            <option value="1">Fixed Defect</option>
+            <option value="2">Reversible Defect</option>
+        </select>
+    
+        <button type="submit" class="btn">Get Heart Disease Report</button>
+        <button type="button" class="btn cancel" onclick="heartForm()">Close</button>
+    </form>
+    
+</div>
+
+
+        </div>
+        <div class="box3">
+            <img src="/static/liver.jpg" alt="liver" class="disease-test-pic">
+            <button class="open-button" onclick="liver()">Know Your Liver Disease Report</button>
+<!-- The form -->
+<div class="form-popup" id="liver" >
+    <form id="liverForm" method="POST" action="/liver" class="form-container">
+        <h1 class="disease-heading">Liver Disease Prediction</h1>
+    
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Please Enter Your Email" name="email" required="required">
+    
+        <label for="phoneNumber"><b>Phone Number</b></label>
+        <input type="number" placeholder="Enter Your Phone Number" name="phoneNumber" required="required">
+    
+        <label for="Age"><b>Age</b></label>
+        <input type="text" placeholder="Enter your age" name="Age" required="required">
+    
+        <label for="Gender"><b>Gender</b></label>
+        <select id="Gender" name="Gender" required="required">
+            <option selected>----Select Option----</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+    
+        <label for="Total_Bilirubin"><b>Total Bilirubin</b></label>
+        <input type="text" placeholder="Enter Total Bilirubin" name="Total_Bilirubin" required="required">
+    
+        <label for="Direct_Bilirubin"><b>Direct Bilirubin</b></label>
+        <input type="text" placeholder="Enter Direct Bilirubin" name="Direct_Bilirubin" required="required">
+    
+        <label for="Alkaline_Phosphotase"><b>Alkaline Phosphotase</b></label>
+        <input type="text" placeholder="Enter Alkaline Phosphotase" name="Alkaline_Phosphotase" required="required">
+    
+        <label for="Alamine_Aminotransferase"><b>Alamine Aminotransferase</b></label>
+        <input type="text" placeholder="Enter Alamine Aminotransferase" name="Alamine_Aminotransferase" required="required">
+    
+        <label for="Aspartate_Aminotransferase"><b>Aspartate Aminotransferase</b></label>
+        <input type="text" placeholder="Enter Aspartate Aminotransferase" name="Aspartate_Aminotransferase" required="required">
+    
+        <label for="Total_Protiens"><b>Total Proteins</b></label>
+        <input type="text" placeholder="Enter Total Proteins" name="Total_Protiens" required="required">
+    
+        <label for="Albumin"><b>Albumin</b></label>
+        <input type="text" placeholder="Enter Albumin" name="Albumin" required="required">
+    
+        <label for="Albumin_and_Globulin_Ratio"><b>Albumin and Globulin Ratio</b></label>
+        <input type="text" placeholder="Enter Albumin and Globulin Ratio" name="Albumin_and_Globulin_Ratio" required="required">
+    
+        <button type="submit" class="btn">Get Your Liver Report</button>
+        <button type="button" class="btn cancel" onclick="liverForm()">Close</button>
+    </form>
+    
+</div>
+
+        </div>
+
+        <div class="box4">
+            <img src="/static/Kidney.jpg" alt="Diabetes" class="disease-test-pic">
+            <button class="open-button" onclick="kidney()">Know Your Kidney Prediction</button>
+
+            <!-- Kidney Disease Prediction Form -->
+<div class="form-popup" id="kidney">
+    <form id="kidneyForm" method="POST" action="/kidney" class="form-container">
+        <h1 class="disease-heading">Kidney Disease Prediction</h1>
+
+        <!-- Contact Details -->
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Please Enter Your Email" name="email" required>
+
+        <label for="phoneNumber"><b>Phone Number</b></label>
+        <input type="tel" placeholder="Enter Your Phone Number" name="phoneNumber" required>
+
+        <!-- Patient Information -->
+        <label for="age"><b>Age</b></label>
+        <input type="number" placeholder="Enter Your Age" name="age" required>
+
+        <label for="bp"><b>Blood Pressure (mmHg)</b></label>
+        <input type="number" placeholder="Enter Your Blood Pressure" name="bp" step="any" required>
+
+        <label for="sg"><b>Specific Gravity</b></label>
+        <input type="number" placeholder="Enter Specific Gravity" name="sg" step="0.01" required>
+
+        <label for="al"><b>Albumin</b></label>
+        <input type="number" placeholder="Enter Albumin Level" name="al" required>
+
+        <label for="su"><b>Sugar Level</b></label>
+        <input type="number" placeholder="Enter Sugar Level" name="su" required>
+
+        <label for="rbc"><b>Red Blood Cells</b></label>
+        <select name="rbc" required>
+            <option value="">Select</option>
+            <option value="normal">Normal</option>
+            <option value="abnormal">Abnormal</option>
+        </select>
+
+        <label for="pc"><b>Pus Cells</b></label>
+        <select name="pc" required>
+            <option value="">Select</option>
+            <option value="normal">Normal</option>
+            <option value="abnormal">Abnormal</option>
+        </select>
+
+        <label for="pcc"><b>Pus Cell Clumps</b></label>
+        <select name="pcc" required>
+            <option value="">Select</option>
+            <option value="present">Present</option>
+            <option value="notpresent">Not Present</option>
+        </select>
+
+        <label for="ba"><b>Bacteria</b></label>
+        <select name="ba" required>
+            <option value="">Select</option>
+            <option value="present">Present</option>
+            <option value="notpresent">Not Present</option>
+        </select>
+
+        <label for="bgr"><b>Blood Glucose Random</b></label>
+        <input type="number" placeholder="Enter Blood Glucose Level" name="bgr" required>
+
+        <label for="bu"><b>Blood Urea</b></label>
+        <input type="number" placeholder="Enter Blood Urea" name="bu" required>
+
+        <label for="sc"><b>Serum Creatinine</b></label>
+        <input type="number" placeholder="Enter Serum Creatinine" name="sc" required>
+
+        <label for="sod"><b>Sodium</b></label>
+        <input type="number" placeholder="Enter Sodium Level" name="sod" required>
+
+        <label for="pot"><b>Potassium</b></label>
+        <input type="number" placeholder="Enter Potassium Level" name="pot" required>
+
+        <label for="hemo"><b>Hemoglobin</b></label>
+        <input type="number" placeholder="Enter Hemoglobin Level" name="hemo" required>
+
+        <label for="pcv"><b>Packed Cell Volume</b></label>
+        <input type="number" placeholder="Enter Packed Cell Volume" name="pcv" required>
+
+        <label for="wc"><b>White Blood Cell Count</b></label>
+        <input type="number" placeholder="Enter White Blood Cell Count" name="wc" required>
+
+        <label for="rc"><b>Red Blood Cell Count</b></label>
+        <input type="number" placeholder="Enter Red Blood Cell Count" name="rc" required>
+
+        <!-- Medical Conditions -->
+        <label for="htn"><b>Hypertension</b></label>
+        <select name="htn" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="dm"><b>Diabetes Mellitus</b></label>
+        <select name="dm" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="cad"><b>Coronary Artery Disease</b></label>
+        <select name="cad" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="appet"><b>Appetite</b></label>
+        <select name="appet" required>
+            <option value="">Select</option>
+            <option value="good">Good</option>
+            <option value="poor">Poor</option>
+        </select>
+
+        <label for="pe"><b>Pedal Edema</b></label>
+        <select name="pe" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="ane"><b>Anemia</b></label>
+        <select name="ane" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <!-- Submit and Close Buttons -->
+        <button type="submit" class="btn">Get Your Kidney Report</button>
+        <button type="button" class="btn cancel" onclick="kidneyForm()">Close</button>
+    </form>
+</div>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <section class="about">
+            <div class="about-image">
+                <img src="/static/Hospital image.jpg" alt="Hospital">
+            </div>
+    
+            <div class="about-content">
+                <h3><b>10 Cities, 27 Hospitals, 1 Vision, 1 Mission</b></h3>
+                <p><u><b>Mission:</b></u> To be a globally respected healthcare organisation known for Clinical
+                    Excellence and Distinctive Patient Care.</p>
+                <p><u><b>Vision:</b></u> To create a world-class integrated healthcare delivery system in India,
+                    entailing the finest medical skills combined with compassionate patient care.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </section>   
+    </div>
+
+
+
+    <h1 class="our-services-heading" > Our Services </h1>
+    <div class="our-services">
+       
+        <div class="neurologist1">
+            <div class="neuroimage">
+                <img src="/static/Neurology.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Neurology</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent"> is the branch of medicine dealing with the diagnosis and treatment of all categories of
+                    conditions and disease involving the nervous system,
+                    which comprises the brain, the spinal cord and the peripheral nerves.</p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+
+        <div class="neurologist2">
+            <div class="neuroimage">
+                <img src="/static/cardiology.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Cardiology</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is the study of the heart and a specialized branch of medicine focused on diagnosing, treating, and preventing disorders of the heart and cardiovascular system, including heart disease, arrhythmias, hypertension, 
+                    heart failure, and congenital conditions.</p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+
+        <div class="neurologist3">
+            <div class="neuroimage">
+                <img src="/static/dental care.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Dental </h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is the maintenance of healthy teeth and may refer to:Oral hygiene, the practice of keeping the mouth
+                    and
+                    teeth clean in order to prevent dental disorders
+                    Dentistry, the professional care of teeth, including professional oral hygiene and dental surgery.
+                   </p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+
+        <div class="neurologist4">
+            <div class="neuroimage">
+                <img src="/static/orthopedics.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Orthopedics</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is the branch of surgery concerned with conditions involving the musculoskeletal system.
+                    Orthopedic surgeons use both surgical and nonsurgical means to treat musculoskeletal trauma, spine
+                    diseases,
+                    </p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+
+        <div class="neurologist5">
+            <div class="neuroimage">
+                <img src="/static/Ophthalmology.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Ophthalmologist</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is a surgical subspecialty within medicine that deals with the diagnosis and treatment of eye
+                    disorders.
+                    An ophthalmologist is a physician who undergoes subspecialty training in medical and surgical eye
+                    care.</p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+        <div class="neurologist6">
+            <div class="neuroimage">
+                <img src="/static/psychiatry.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Psychiatry</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is the medical specialty devoted to the diagnosis, prevention, and treatment of deleterious mental
+                    conditions.
+                    These include various matters related to mood, behaviour, cognition, and perceptions.</p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+        <div class="neurologist7">
+            <div class="neuroimage">
+                <img src="/static/Gynae-Oncology.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Gyane Oncology</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent">is a specialized field of medicine that focuses on cancers of the female reproductive system,
+                    including ovarian cancer, uterine cancer, vaginal cancer, cervical cancer, and vulvar cancer.</p>
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+        <div class="neurologist8">
+            <div class="neuroimage">
+                <img src="/static/Endocrinology.jpg" alt="">
+            </div>
+            <div class="neurotitle">
+                <h2>Endocrinology</h2>
+            </div>
+            <div class="neurodescription">
+                <p class="descriptivecontent"> is the study of the endocrine system in the human body. This is a system of glands which secrete
+                    hormones.
+                    Hormones are chemicals that affect the actions of different organ systems in the body. </p>
+                <p></p>
+
+                <button class="neurobutton">Read More...</button>
+            </div>
+        </div>
+    </div>
+    <div class="about-us">
+        <h2>About us</h2>
+        <p class="about-us-content"> Have Plan to be like this 🫣 Mankav Medic@re Healthcare Limited – a ManKav Group Company – is a leading integrated healthcare services provider in India. As one of the country’s largest healthcare organizations, it operates 27 healthcare facilities, 4,300 operational beds, and 400 diagnostic centers. With a strong presence in India, UAE, Nepal, and Sri Lanka, Mankav Medic@re is listed on both the BSE Ltd. and National Stock Exchange (NSE) of India. Strengthened by its partnership 
+            with global healthcare leader ManKav, the company upholds a culture of world-class patient care and clinical excellence. </p>
+    </div>
+
+    <div class="social-media">
+
+
+        <a href="https://www.facebook.com/" target="_blank">
+            <i class="fa fa-2x  fa-facebook"></i>
+        </a>
+        <a href="https://www.twitter.com/" target="_blank">
+            <i class="fa fa-2x fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+            <i class="fa fa-2x fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank">
+            <i class="fa fa-2x fa-youtube"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+            <i class="fa fa-2x fa-linkedin"></i>
+        </a>
+        
+    </div>
+    
+
+    <footer class="footer">
+        <p>&copy; 2025 Mankav. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+
+
+</html>

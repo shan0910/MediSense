@@ -1,0 +1,815 @@
+
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Heading Section */
+.heading {
+    width: 100%;
+    background-color: rgb(42, 42, 139);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px; /* Ensures padding for text readability */
+    position: relative;
+}
+
+#coming-soon-text {
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Ensure Responsiveness */
+@media screen and (max-width: 768px) {
+    .heading {
+        font-size: 16px;
+        height: auto; /* Adjust height for smaller screens */
+        padding: 12px;
+    }
+}
+
+
+/* Logo styling */
+#logo {
+    float: left;
+    display: block;
+    width: 140px;
+    height: 60px;
+    border-radius: 7px;
+    margin: 5px 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+    transform: scale(1.2);
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8cb9db;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+#navbar-btn {
+    padding: 8px 12px;
+    background-color: #8cb9db;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#navbar-btn:hover {
+    background-color: black;
+    color: red;
+}
+
+/* Hide the menu icon initially */
+.navbar .icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .icon {
+        display: block;
+        text-align: right;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar.responsive {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar.responsive a {
+        display: block;
+    }
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(254, 126, 126, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.box-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+ 
+/* General Reset */
+
+/* Appointment Form Container */
+.appointment-form-box {
+    max-width: 700px;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px auto; /* Centers the form dynamically */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Heading */
+.form-heading {
+    font-size: 2rem;
+    text-align: center;
+    color: #29259c;
+    margin-bottom: 10px;
+}
+
+/* Responsive Heading */
+@media screen and (max-width: 600px) {
+    .form-heading {
+        font-size: 1.7rem;
+    }
+}
+
+/* Input & Select Fields */
+input[type="text"], input[type="number"], input[type="tel"], select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Appointment Button */
+.appointment-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.appointment-btn:hover {
+    background-color: #45a049;
+}
+
+/* Button Container */
+.appointment-btn-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Sign-in Section */
+.signin {
+    background-color: #303058;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 15px;
+}
+
+.signin p {
+    color: white;
+    font-size: 1rem;
+}
+
+.signin .signInlink {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signin .signInlink:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+    .appointment-form-box {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .appointment-form-box {
+        width: 90%;
+    }
+}
+
+
+
+.marq-container {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.marqp {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #29259c;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+    /* Container for instant results */
+/* Container for result boxes */
+/* Main container for the result section */
+.instant-result {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(201, 199, 187);
+}
+
+.disease-test-pic {
+    height: 307px;
+    width: 305px;
+    border-radius: 10px;
+}
+
+.box1, .box2, .box3, .box4 {
+    height: 307px;
+    width: 305px;
+    border-radius: 10px;
+    background-color: rgb(190, 196, 201);
+    border: 1px solid #478eb8;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    position: relative;
+}
+
+
+
+
+.box1 .open-button, .box2 .open-button, .box3 .open-button, .box4 .open-button {
+    background-color: #2b2626;
+    color: rgb(222, 47, 47);
+    font-weight: 600;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    text-align: center;
+    width: 60%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.disease-heading { 
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #1A5276; /* Dark Teal Blue */
+}
+
+.form-popup {
+    display: none;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    max-width: 90%;
+    background-color: #FFFFFF; /* Pure White */
+    border: 2px solid #5D6D7E; /* Dark Grey */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.form-container {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #F7E6E6; /* Soft Blush */
+}
+
+.form-container input[type=number],
+.form-container input[type=text] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+.form-container input:focus {
+    background-color: #FFFFFF;
+    outline: none;
+    border: 1px solid #007BFF; /* Sea Green */
+}
+
+.form-container .btn {
+    background-color: #007BFF; /* Sea Green */
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.form-container .btn:hover {
+    opacity: 1;
+    background-color: #E67E22; /* Burnt Orange */
+}
+
+.form-container .cancel {
+    background-color: #FF4B4B; /* Stronger Red */
+    border-radius: 7px;
+}
+
+.form-container .cancel:hover {
+    opacity: 1;
+    background-color: #D7263D; /* Dark Red */
+}
+
+@media screen and (max-width: 1200px) {
+    .box1, .box2, .box3, .box4 {
+        width: 40%;
+        height: auto;
+    }
+    .box1 .open-button, .box2 .open-button, .box3 .open-button, .box4 .open-button {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box1, .box2, .box3, .box4 {
+        width: 90%;
+    }
+    .box1 .open-button, .box2 .open-button, .box3 .open-button, .box4 .open-button {
+        width: 70%;
+    }
+    .form-popup {
+        width: 90%;
+    }
+}
+
+
+
+.about-us {
+    width: 100%;
+    display: flex;
+    background-color: #42978f;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 5px;
+}
+
+.about-us h2 {
+    display: block;
+    position: relative;
+    color: #3144BF; /* Dark Blue */
+    margin-bottom: 25px;
+}
+
+.about-us h2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    display: block;
+    margin: 0 auto;
+    background-color: #8d558a; /* Purple Accent */
+}
+
+.about-us p {
+    font-size: 18px;
+    color: #161414;
+    margin-bottom: 35px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    background-color: rgb(82, 156, 178);
+    flex-direction: row;
+    border-radius: 11px;
+    padding: 20px; /* Added for spacing */
+}
+
+.about {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    overflow: hidden;
+    padding: 25px;
+    border-radius: 11px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+    margin-left: 25px;
+    border-radius: 11px;
+}
+
+.about-image:hover img {
+    transform: scale(1.2); /* Reduced zoom-in for better layout */
+}
+
+.about-content {
+    flex: 1;
+    margin-left: 40px; /* Adjusted for better spacing */
+}
+
+.about-content h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #131111;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about-content .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333; /* Changed to a dark color */
+    color: white; /* Better contrast */
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.about-content .read-more:hover {
+    background-color: rgb(219, 226, 224);
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .about-us {
+        padding: 0px 20px;
+    }
+
+    .about-us h2 {
+        font-size: 30px;
+    }
+
+    .about-us p {
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 10px;
+        flex-direction: column; /* Stack elements on smaller screens */
+    }
+
+    .about {
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin-right: 0px;
+        margin-bottom: 20px;
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .about-content {
+        padding: 0px;
+        font-size: 16px;
+        margin-left: 0px; /* Fix alignment on small screens */
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: 16px;
+    }
+
+    .about-content .read-more {
+        font-size: 16px;
+    }
+}
+
+
+.our-services-heading{
+    background-color: #217f63 ;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #75191c;
+    text-shadow: #29259c;
+   padding-bottom: 7px;
+   font-size: 1.5rem;
+	  text-indent:0%;
+}
+
+/* used same styl for every postcard */
+.our-services {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #217f63;
+    padding-left: 0%;
+    color: black;
+}
+
+
+.neurologist1,.neurologist2,.neurologist3,.neurologist4,.neurologist5,
+.neurologist6,.neurologist7,.neurologist8  {
+    width: 305px;
+    height: 575px;
+    border-radius: 10px;
+    background-color: grey;
+    border: 1px solid #478eb8;
+   
+}
+
+.neuroimage img {
+    width: 305px;
+    height: 307px;
+    border-radius: 10px;
+}
+
+.neurotitle {
+    text-align: center;
+}
+
+.neurodescription {
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent: 10%;
+    padding: 5px 5px 25px 5px ;
+    margin-top: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Common styles for all buttons */
+/* Common styles for all buttons */
+.neurobutton {
+    background-color: #2b2626;
+    color: rgb(222, 47, 47);
+    font-weight: 200;
+    border: 1px solid black;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    width: 121px;
+    padding: 11px;
+    margin-top: 30px;
+    
+    /* Centering the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Positioning inside the box */
+    position: absolute;
+    left: 50%;
+    bottom: 10px; /* Adjust this to control vertical position */
+    transform: translateX(-50%);
+}
+
+/* Ensure parent container has `position: relative;` */
+.neurologist1,
+.neurologist2,
+.neurologist3,
+.neurologist4,
+.neurologist5,
+.neurologist6,
+.neurologist7,
+.neurologist8 {
+    position: relative;
+    text-align: center;
+    padding-bottom: 40px; /* Prevents content overlap */
+}
+
+
+.neurobutton:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s; /* Faster transition for better UX */
+}
+
+.about-us{
+    border-radius: 11px;
+}
+
+@media screen and (max-width: 1200px) {
+    .about-us{
+        width: 100%;
+    }
+
+}
+    
+@media screen and (max-width: 600px) {
+    .about-us{
+        width: 100%;
+    }
+
+    
+}
+.about-us-content{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent: 10%;
+    padding: 5px 16px 5px 16px ;
+}
+
+.social-media {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 10px;
+    line-height: 100px;
+
+}
+
+a i {
+    transition: all 0.3s linear;
+
+    margin: 2px 25px;
+}
+
+a:hover i {
+    transform: scale(1.4);
+}
+
+.social-media .fa-facebook {
+    color: #29259c;
+}
+
+.fa-twitter {
+    color: #3588bc;
+}
+
+.fa-instagram {
+    color: #d55656;
+}
+
+.fa-youtube {
+    color: #bd1010;
+}
+
+.fa-linkedin {
+    color: #3588bc;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+}
+   

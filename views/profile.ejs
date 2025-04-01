@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Profile</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      width: 100%;
+      margin: 0;
+      background: #f4f4f4;
+  }
+
+  .profile-container {
+      background: #ffffff;
+      padding: 3px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+
+  /* Profile Card */
+  .profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 45%;
+     justify-content: center;
+  }
+
+  .profile-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-top: 8px;
+  }
+
+  /* Table Styling */
+  .profile-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      border-radius: 8px;
+  }
+
+  .profile-table th, .profile-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      border-radius: 8px;
+    
+  }
+
+  .profile-table th {
+    border-radius: 8px;
+    background-color: #193f65;
+      color: white;
+      width: 40%;
+  }
+
+  .profile-table td {
+    border-radius: 8px;
+    background-color: #193f65;
+    color: white;
+      font-weight: bold;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+      .profile-container {
+          max-width: 90%;
+      }
+
+      .profile-table th, .profile-table td {
+          padding: 8px;
+          font-size: 14px;
+      }
+  }
+
+  /* Headings */
+  .profile-card h2 {
+      color: #4CAF50;
+      margin-bottom: 7px;
+  }
+
+  /* Profile Details */
+  .profile-details {
+      text-align: left;
+      width: 100%;
+  }
+
+  /* Buttons */
+  button {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+  }
+
+  button:hover {
+      background-color: #d32f2f;
+  }
+
+  /* Profile Options */
+  .profile-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="profile-container">
+
+  <div class="profile-card">
+    <img src="/static/profile-icon.png" alt="Patient Image" class="profile-image">
+    <h2>Patient Profile</h2>
+    <div class="profile-details">
+      <table class="profile-table">
+          <tr>
+              <th>Name</th>
+              <td id="patientName"></td>
+          </tr>
+          <tr>
+              <th>Age</th>
+              <td id="age"></td>
+          </tr>
+          <tr>
+              <th>Gender</th>
+              <td id="gender"></td>
+          </tr>
+          <tr>
+              <th>Nationality</th>
+              <td id="nationality"></td>
+          </tr>
+          <tr>
+              <th>Email</th>
+              <td id="email"></td>
+          </tr>
+          <tr>
+              <th>Phone</th>
+              <td id="phoneNumber"></td>
+          </tr>
+         
+      </table>
+    </div>
+
+    <!-- Buttons for actions -->
+    <div class="profile-options">
+      <button id="appointmentBtn">Appointment</button>
+      <button id="diseasePredictionBtn">Disease Prediction</button>
+    </div>
+    <button id="logoutBtn">Logout</button>
+  </div>
+</div>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+  
+      if (token) {
+        try {
+          const response = await fetch('/api/user/me', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            }
+          });
+  
+          if (!response.ok) {
+            throw new Error('Failed to fetch profile data');
+          }
+  
+          const userData = await response.json();
+          console.log('User Data:', userData);
+  
+          // Display Profile Data with fallbacks
+          document.getElementById('patientName').textContent = userData.name || 'N/A';
+          document.getElementById('age').textContent = userData.age || 'N/A';
+          document.getElementById('gender').textContent = userData.gender || 'N/A';
+          document.getElementById('nationality').textContent = userData.nationality || 'N/A';
+          document.getElementById('email').textContent = userData.email || 'N/A';
+          document.getElementById('phoneNumber').textContent = userData.phoneNumber || 'N/A';
+         
+        } catch (error) {
+          console.error('Error fetching profile:', error);
+        }
+      }
+      
+      // Appointment button action
+      document.getElementById('appointmentBtn').addEventListener('click', () => {
+        alert("No appointment till now.");
+      });
+  
+      // Disease Prediction button action - redirect to disease prediction page
+      document.getElementById('diseasePredictionBtn').addEventListener('click', () => {
+        window.location.href = '/profile/disease-prediction';
+    });
+    
+  
+    // Logout Functionality
+const logoutButton = document.getElementById('logoutBtn');
+
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token'); // Clear token
+    alert('Logged out successfully.');
+    window.location.href = '/'; // Redirect to home page
+  });
+} else {
+  console.warn('Logout button not found in the DOM.');
+}
+
+    });
+
+    
+  </script>
+</body>
+</html>

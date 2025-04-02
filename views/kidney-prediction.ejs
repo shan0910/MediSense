@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Mankav | Kidney Assessment Report</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+
+    <script>
+        window.onload = function () {
+            document.getElementById("download").addEventListener("click", () => {
+                const invoice = document.getElementById("kidney-invoice");
+
+                const currentDate = new Date().toISOString().slice(0, 10);
+                const opt = {
+                    margin: 1,
+                    filename: `Kidney_Assessment_${currentDate}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+                };
+
+                html2pdf().from(invoice).set(opt).save();
+            });
+        }
+    </script>
+
+    <style>
+        body {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fb;
+        }
+
+        .header {
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(164, 192, 221, 0.15);
+            border: 5px solid rgba(0, 123, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .report-lines {
+            margin-top: 50px;
+            text-align: justify;
+        }
+
+        .download-btn-container {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .h3-lines {
+            color:black;
+            background-color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .Download-btn {
+            background-color: #4169E1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .Download-btn:hover {
+            background-color: #2c4d9e;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="kidney-invoice">
+        <div class="header">
+            <h1 class="display-5" style="text-align: center; color: black;">Your Kidney Report</h1>
+            <p class="lead" style="text-align: center; color: black;">Please Find Report Analysis Below</p>
+        </div>
+
+        <div class="container">
+            <div class="report-lines">
+                <% if (pred === "Negative") { %>
+                    <h1 class="h3-lines">
+                        Prediction: <span>Great! You DON'T have chances of Kidney Disease.</span>
+                    </h1>
+                    <h1 class="h3-lines">
+                       Probability: <%= (probability * 100).toFixed(2) %>%
+                    </h1>
+                <% } else if (pred === "Positive") { %>
+                    <h1 class="h3-lines">
+                        Prediction: <span>Oops! You have chances of Kidney Disease. </span>
+                    </h1>
+                    <h1 class="h3-lines">
+                         Probability : <span><%= (probability * 100).toFixed(2) %>%</span>
+                    </h1>
+                   
+                <% } else { %>
+                    <h1 class="h3-lines">Prediction not available</h1>
+                <% } %>
+            </div>
+            
+        </div>
+
+        <div class="download-btn-container">
+            <button class="Download-btn" id="download">Download</button>
+        </div>
+
+        <div class="footer">
+            <p># Stay Safe & Healthy</p>
+            <p>&copy; Mankav</p>
+        </div>
+    </div>
+</body>
+
+</html>

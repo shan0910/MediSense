@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Prediction History</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .profile-container {
+      width: 100%;
+      background: #fff;
+      padding: 3px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 8px;
+   
+}
+
+  /* Wrapper for centering the table */
+  .table-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center; /* Center vertically */
+      align-items: center; /* Center horizontally */
+  }
+
+  /* Profile Table */
+  .profile-table {
+      width: 42%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      border-radius: 8px;
+      justify-content: center; /* Center vertically */
+      align-items: center; /* Center horizontally */
+      
+  }
+
+  .profile-table th, .profile-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+  }
+
+  .profile-table th {
+      background-color: #193f65;
+      color: white;
+      width: 40%;
+      border-radius: 8px;
+      
+  }
+
+  .profile-table td {
+      background-color: #193f65;
+      font-weight: bold;
+      border-radius: 8px;
+      color: white;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+      .profile-table {
+          width: 90%;
+      }
+
+      .profile-table th, .profile-table td {
+          padding: 8px;
+          font-size: 14px;
+      }
+  }
+
+    .profile-container h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 7px;
+    }
+    p {
+      margin: 8px 0;
+    }
+    .disease-header {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 20px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 5px;
+    }
+    .history-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      position: relative;
+      border-radius: 8px;
+    }
+    /* Sticky "Prediction History" Heading */
+     h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 7px;
+    }
+    /* Table Adjustments */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      min-width: 600px;
+      border-radius: 10px;
+    }
+    .history-table th, .history-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      white-space: nowrap;
+      border-radius: 10px;
+    }
+    .history-table th {
+      background-color: #007bff;
+      color: white;
+    }
+    /* Mobile-Friendly Table */
+    @media (max-width: 768px) {
+      .history-container {
+        max-width: 95%;
+      }
+      .history-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+    .back-btn {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      margin: 0 auto;
+    }
+    .back-btn:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <!-- Profile Section -->
+  <div class="profile-container">
+    <img src="/static/profile-icon.png" alt="Patient Image" class="profile-image">
+    <h2 class="h2">Patient Profile</h2>
+
+    <div class="table-wrapper">
+    <table class="profile-table">
+        <tr>
+            <th>Name</th>
+            <td id="patientName"></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td id="age"></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td id="gender"></td>
+        </tr>
+        <tr>
+            <th>Nationality</th>
+            <td id="nationality"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td id="email"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td id="phoneNumber"></td>
+        </tr>
+       
+    </table>
+    </div>
+</div>
+
+  <!-- Prediction History Section -->
+  <h2>Prediction History</h2>
+  <div class="history-container">
+    <div id="historyResult">
+      <p>Loading prediction history...</p>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.location.href='/profile'">Back to Profile</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Not authenticated. Please log in.');
+        window.location.href = '/login';
+        return;
+      }
+
+      async function loadProfileData() {
+        try {
+          const profileResponse = await fetch('/api/user/me', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
+          });
+          if (!profileResponse.ok) throw new Error('Failed to fetch profile data');
+          const userData = await profileResponse.json();
+
+          document.getElementById('patientName').textContent = userData.name || 'N/A';
+          document.getElementById('age').textContent = userData.age || 'N/A';
+          document.getElementById('gender').textContent = userData.gender || 'N/A';
+          document.getElementById('nationality').textContent = userData.nationality || 'N/A';
+          document.getElementById('email').textContent = userData.email || 'N/A';
+          document.getElementById('phoneNumber').textContent = userData.phoneNumber || 'N/A';
+         
+
+          if (userData.email) localStorage.setItem('userEmail', userData.email);
+        } catch (error) {
+          console.error('Error fetching profile data:', error);
+          alert('Failed to load profile data. Please try again.');
+        }
+      }
+
+      async function loadPredictionHistory() {
+        const userEmail = localStorage.getItem('userEmail');
+        if (!userEmail) return;
+
+        const historyContainer = document.getElementById('historyResult');
+        historyContainer.innerHTML = '<p>Loading history...</p>';
+
+        const diseaseMapping = {
+          "0": "Diabetes",
+          "1": "Heart",
+          "2": "Liver",
+          "3": "kidney"
+        };
+
+        try {
+          const response = await fetch(`/api/user/disease-prediction/history?email=${encodeURIComponent(userEmail)}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json' }
+          });
+
+          if (!response.ok) {
+            historyContainer.innerHTML = '<p>No prediction history found.</p>';
+            return;
+          }
+
+          const historyData = await response.json();
+          let allHistory = '';
+
+          if (historyData && typeof historyData === 'object') {
+            for (const diseaseIndex in historyData) {
+              const diseaseType = diseaseMapping[diseaseIndex] || `Unknown Disease (${diseaseIndex})`;
+              const diseaseHistory = historyData[diseaseIndex];
+
+              if (Array.isArray(diseaseHistory.predictions) && diseaseHistory.predictions.length > 0) {
+                allHistory += `<h3 class="disease-header">${diseaseType.toUpperCase()}</h3>`;
+                allHistory += `<table class="history-table"><thead><tr>${
+                  Object.keys(diseaseHistory.predictions[0]).map(key => `<th>${key}</th>`).join('')
+                }</tr></thead><tbody>`;
+                diseaseHistory.predictions.forEach(item => {
+                  allHistory += `<tr>${Object.values(item).map(value => `<td>${value || 'N/A'}</td>`).join('')}</tr>`;
+                });
+                allHistory += `</tbody></table>`;
+              }
+            }
+          }
+
+          historyContainer.innerHTML = allHistory || '<p>No prediction history found.</p>';
+        } catch (error) {
+          console.error('Error:', error);
+          historyContainer.innerHTML = '<p>Could not load prediction history.</p>';
+        }
+      }
+
+      await loadPredictionHistory();
+      await loadProfileData();
+    });
+  </script>
+</body>
+</html>

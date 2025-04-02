@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../models/user');
 
 const authMiddleware = (req, res, next) => {
   // Look for the token in the "Authorization" header, removing the "Bearer " prefix if present.

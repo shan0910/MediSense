@@ -15,114 +15,164 @@
       background: #f4f4f4;
   }
 
+  
   .profile-container {
-      background: #ffffff;
-      padding: 3px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-  }
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-  /* Profile Card */
-  .profile-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 45%;
-     justify-content: center;
-  }
-
-  .profile-image {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-top: 8px;
-  }
-
-  /* Table Styling */
-  .profile-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      border-radius: 8px;
-  }
-
-  .profile-table th, .profile-table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-      border-radius: 8px;
-    
-  }
-
-  .profile-table th {
+/* Profile Card */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
     border-radius: 8px;
-    background-color: #193f65;
-      color: white;
-      width: 40%;
-  }
+}
 
-  .profile-table td {
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 8px;
     border-radius: 8px;
+}
+
+/* Table Styling */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.profile-table th, 
+.profile-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.profile-table th {
     background-color: #193f65;
     color: white;
-      font-weight: bold;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.profile-table td {
+    background-color: #193f65;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Headings */
+.profile-card h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+/* Profile Details */
+.profile-details {
+    text-align: left;
+    width: 100%;
+}
+
+/* Buttons */
+button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+/* Profile Options */
+.profile-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .profile-card {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        max-width: 100%;
+    }
+
+    .profile-card {
+        width: 90%;
+    }
+
+    .profile-table th, 
+    .profile-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 10px;
+    }
+
+    .profile-container {
+      max-width: 100%;
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-      .profile-container {
-          max-width: 90%;
-      }
-
-      .profile-table th, .profile-table td {
-          padding: 8px;
-          font-size: 14px;
-      }
+  .profile-card {
+      width: 90%;
   }
 
-  /* Headings */
-  .profile-card h2 {
-      color: #4CAF50;
-      margin-bottom: 7px;
-  }
+    .profile-image {
+        width: 90px;
+        height: 90px;
+    }
 
-  /* Profile Details */
-  .profile-details {
-      text-align: left;
-      width: 100%;
-  }
+    .profile-table th, 
+    .profile-table td {
+        padding: 8px;
+        font-size: 13px;
+    }
 
-  /* Buttons */
-  button {
-      background-color: #f44336;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      width: 100%;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-      font-weight: bold;
-  }
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
 
-  button:hover {
-      background-color: #d32f2f;
-  }
-
-  /* Profile Options */
-  .profile-options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-      width: 100%;
-  }
 </style>
 </head>
 <body>

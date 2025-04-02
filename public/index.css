@@ -449,27 +449,21 @@ input:focus, select:focus {
     background-color: #D7263D; /* Dark Red */
 }
 
-@media screen and (max-width: 1200px) {
-    .box1, .box2, .box3, .box4 {
-        width: 40%;
-        height: auto;
-    }
-    .box1 .open-button, .box2 .open-button, .box3 .open-button, .box4 .open-button {
-        width: 50%;
-    }
-}
 
 @media screen and (max-width: 600px) {
-    .box1, .box2, .box3, .box4 {
-        width: 90%;
+    .box1, .box2, .box3, .box4,.disease-test-pic {
+        width: 100%;
+        border-radius: 8px;
     }
     .box1 .open-button, .box2 .open-button, .box3 .open-button, .box4 .open-button {
-        width: 70%;
+        width: 65%;
     }
     .form-popup {
         width: 90%;
     }
 }
+
+
 
 
 
@@ -667,6 +661,15 @@ input:focus, select:focus {
     width: 305px;
     height: 307px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .neurologist1,.neurologist2,.neurologist3,.neurologist4,.neurologist5,
+    .neurologist6,.neurologist7,.neurologist8 , .neuroimage img {
+        width: 100%;
+        border-radius: 8px;
+    }
+   
 }
 
 .neurotitle {

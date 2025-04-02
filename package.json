@@ -1,11 +1,37 @@
 {
+  "name": "medisense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shan0910/MediSense.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shan0910/MediSense/issues"
+  },
+  "homepage": "https://github.com/shan0910/MediSense#readme",
   "dependencies": {
+    "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.1",
-    "moongoose": "^0.0.5",
-    "python-shell": "^5.0.0"
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.9",
+    "python-shell": "^5.0.0",
+    "router": "^2.2.0"
   }
 }

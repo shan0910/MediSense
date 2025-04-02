@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getUserProfile } = require('../controllers/userController'); // Correct import
 const { authenticate } = require('../middleware/authMiddleware');
-const User = require('../models/User');
+const User = require('../models/user');
 
 router.get('/me', authenticate, getUserProfile);
 // router.get('/me', authMiddleware, async (req, res) => {

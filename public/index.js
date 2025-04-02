@@ -1,18 +1,4 @@
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const token = localStorage.getItem('token');
-    
-    if (!token) {
-      // Get current URL and encode it
-      const currentURL = window.location.href;
-      window.location.href = '/login?redirect=' + encodeURIComponent(currentURL);
-      return;
-    }
-    // If token exists, continue loading prediction features.
-  });
-
-
-
 function myFunction() {
     var x = document.getElementById("mynavbar");
     if (x.className === "navbar") {

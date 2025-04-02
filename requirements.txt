@@ -1,8 +1,5 @@
-
-json
-pickle
-os
-joblib
-numpy
-pandas
-sklearn
+joblib  
+numpy  
+pandas  
+scikit-learn  
+python-shell  

@@ -11,7 +11,7 @@ const appointmentRoutes = require('../routes/appointment');
 const profileRoutes = require('../routes/profile');
 const diseasePredictionRoutes = require('../routes/diseaseprediction');
 
-const PORT = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 
 const PredictDiabetes = path.resolve(__dirname, '../python_scripts/predict_diabetes.py');
 const PredictHeart = path.resolve(__dirname, '../python_scripts/Predict_heart.py');
@@ -372,6 +372,6 @@ app.use('/api/user/disease-prediction', diseasePredictionRoutes);
 app.use((req, res) => res.status(404).json({ error: '❌ Route not found' }));
 
 // Start Server
-app.listen(PORT , () => {
-    console.log(`🚀 Server running on http://localhost:${PORT }`);
+app.listen(port , () => {
+    console.log(`🚀 Server running on http://localhost:${port}`);
 });

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { authenticate } = require('../middleware/authMiddleware');
-const Appointment = require('../models/Appointment');
+const Appointment = require('../models/appointment');
 const { getUserProfile } = require('../controllers/userController');
 
 // Create appointment
